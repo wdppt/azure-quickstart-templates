@@ -27,7 +27,7 @@
     "availabilitySetNodes": "swarm-nodes-set",
     "osImagePublisher": "CoreOS",
     "osImageOffer": "CoreOS",
-    "osImageSKU": "Stable",
+    "osImageSKU": "Alpha",
     "managementPublicIPAddrName": "swarm-lb-masters-ip",
     "nodesPublicIPAddrName": "swarm-lb-nodes-ip",
     "virtualNetworkName": "swarm-vnet",
@@ -474,7 +474,8 @@
               "image": "swarm:1.0.0",
               "command": "[concat('manage --replication --advertise ', reference(concat(variables('vmNameMaster'), copyIndex(), '-nic')).ipConfigurations[0].properties.privateIPAddress, ':2375 consul://10.0.0.4:8500/nodes')]",
               "ports": [
-                "2375:2375"
+                "2375:2375",
+                "option": ["--userland-proxy=false"]
               ],
               "links": [
                 "consul"
@@ -506,7 +507,8 @@
         "typeHandlerVersion": "1.0",
         "settings": {
           "docker": {
-            "port": "2375"
+            "port": "2375",
+            "option": ["--userland-proxy=false"]
           },
           "compose": {
             "swarm": {
