@@ -507,7 +507,11 @@
         "settings": {
           "docker": {
             "port": "2375",
-            "options": ["--userland-proxy=false"]
+            "options": [
+              "--userland-proxy=false",
+              "--cluster-store=consul://10.0.0.4:8500",
+              "--cluster-advertise=eth0:2375"
+            ]
           },
           "compose": {
             "swarm": {
