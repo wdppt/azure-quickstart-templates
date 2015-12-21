@@ -507,7 +507,7 @@
         "settings": {
           "docker": {
             "port": "2375",
-            "option": ["--userland-proxy=false"]
+            "options": ["--userland-proxy=false"]
           },
           "compose": {
             "swarm": {
