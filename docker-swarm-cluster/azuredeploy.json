@@ -471,7 +471,7 @@
               "restart": "always"
             },
             "swarm": {
-              "image": "swarm:1.0.0",
+              "image": "swarm",
               "command": "[concat('manage --replication --advertise ', reference(concat(variables('vmNameMaster'), copyIndex(), '-nic')).ipConfigurations[0].properties.privateIPAddress, ':2375 consul://10.0.0.4:8500/nodes')]",
               "ports": [
                 "2375:2375"
@@ -511,7 +511,7 @@
           },
           "compose": {
             "swarm": {
-              "image": "swarm:1.0.0",
+              "image": "swarm",
               "restart": "always",
               "command": "[concat('join --advertise=', reference(concat(variables('vmNameNode'), copyIndex(), '-nic')).ipConfigurations[0].properties.privateIPAddress, ':2375 consul://10.0.0.4:8500/nodes')]"
             }
