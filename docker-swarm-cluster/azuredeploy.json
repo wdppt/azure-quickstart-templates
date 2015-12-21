@@ -474,8 +474,7 @@
               "image": "swarm:1.0.0",
               "command": "[concat('manage --replication --advertise ', reference(concat(variables('vmNameMaster'), copyIndex(), '-nic')).ipConfigurations[0].properties.privateIPAddress, ':2375 consul://10.0.0.4:8500/nodes')]",
               "ports": [
-                "2375:2375",
-                "option": ["--userland-proxy=false"]
+                "2375:2375"
               ],
               "links": [
                 "consul"
